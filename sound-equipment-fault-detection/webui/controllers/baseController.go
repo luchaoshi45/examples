@@ -11,14 +11,14 @@ import (
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/client-go/dynamic"
-	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/client-go/rest"
 )
 
-var kubeconfig *string
+// var kubeconfig *string
 
-func init() {
-	kubeconfig = flag.String("kubeconfig", "./config", "(optional) absolute path to the kubeconfig file")
-}
+// func init() {
+// 	// kubeconfig = flag.String("kubeconfig", "./config", "(optional) absolute path to the kubeconfig file")
+// }
 
 // This is a placeholder for your LED status
 var ledStatus = true
@@ -43,8 +43,21 @@ func GetLEDStatus(c *gin.Context) {
 
 func GetValue() string {
 	flag.Parse()
-	// Initialize Kubernetes client configuration
-	config, err := clientcmd.BuildConfigFromFlags("", *kubeconfig)
+
+	var config *rest.Config
+	var err error
+
+	// If a kubeconfig file is specified, use external config
+	// if *kubeconfig != "" {
+	// 	config, err = clientcmd.BuildConfigFromFlags("", *kubeconfig)
+
+	// } else {
+	// 	// Otherwise use the cluster internal configuration
+	// 	config, err = rest.InClusterConfig()
+	// }
+
+	config, err = rest.InClusterConfig()
+
 	if err != nil {
 		panic(err.Error())
 	}

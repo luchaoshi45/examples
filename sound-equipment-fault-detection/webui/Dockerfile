@@ -20,7 +20,7 @@ COPY --from=build /app/main /app/main
 COPY --from=build /app/static /app/static
 
 # Copy the config to the final image
-COPY --from=build /app/config /app/config
+# COPY --from=build /app/config /app/config
 
 # Set the working directory
 WORKDIR /app
