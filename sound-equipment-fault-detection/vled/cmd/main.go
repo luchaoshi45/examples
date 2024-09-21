@@ -2,16 +2,15 @@ package main
 
 import (
 	"errors"
-
-	"github.com/kubeedge/examples/sound-equipment-fault-detection/vled/control"
 	"k8s.io/klog/v2"
 
-	"github.com/kubeedge/examples/sound-equipment-fault-detection/vled/device"
 	"github.com/kubeedge/mapper-framework/pkg/common"
 	"github.com/kubeedge/mapper-framework/pkg/config"
 	"github.com/kubeedge/mapper-framework/pkg/grpcclient"
 	"github.com/kubeedge/mapper-framework/pkg/grpcserver"
 	"github.com/kubeedge/mapper-framework/pkg/httpserver"
+	"github.com/kubeedge/examples/sound-equipment-fault-detection/vled/control"
+	"github.com/kubeedge/examples/sound-equipment-fault-detection/vled/device"
 )
 
 func main() {

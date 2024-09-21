@@ -5,9 +5,9 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-
-	"github.com/kubeedge/examples/sound-equipment-fault-detection/vled/device"
 	"k8s.io/klog/v2"
+	
+	"github.com/kubeedge/examples/sound-equipment-fault-detection/vled/device"
 )
 
 type RequestData struct {
