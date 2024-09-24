@@ -136,6 +136,5 @@ class NumpyMelSpectrogram:
         spectrogram = self._stft(waveform)
         mel_filterbank = self._mel_filterbank()
         mel_spectrogram = np.dot(spectrogram, mel_filterbank.T)
-        # 交换第 1 维和第 2 维
         mel_spectrogram = np.transpose(mel_spectrogram, (1, 0))
         return mel_spectrogram
